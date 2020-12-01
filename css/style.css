@@ -1,13 +1,76 @@
-* {
-  margin: 0;
-  padding: 0;
+/* --------------initail setup--------------------- */
+/* custom variables */
+:root {
+  --primary-color: #22d3ee;
+  --primary-color2: #67e8f9;
+}
+/* border box */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* body border */
+/* body:before,
+body:after {
+  content: "";
+  position: fixed;
+  background: var(--primary-color);
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+body:before {
+  top: 0;
+}
+body:after {
+  bottom: 0;
 }
 
 body {
-  background-color: rgb(3, 20, 66);
+  border-left: 10px solid var(--primary-color);
+  border-right: 10px solid var(--primary-color);
+} */
+/* body border method 2 */
+#top,
+#bottom,
+#left,
+#right {
+  background: var(--primary-color);
+  position: fixed;
+}
+#left,
+#right {
+  top: 0;
+  bottom: 0;
+  width: 15px;
+}
+#left {
+  left: 0;
+}
+#right {
+  right: 0;
 }
 
-.wrapper {
+#top,
+#bottom {
+  left: 0;
+  right: 0;
+  height: 15px;
+}
+#top {
+  top: 0;
+}
+#bottom {
+  bottom: 0;
+}
+
+/* ------------------------loading animation styles------------------ */
+/* loading container */
+.loading {
   width: 480px;
   height: 150px;
   position: absolute;
@@ -16,7 +79,7 @@ body {
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-
+/* logo wrapper */
 .logo {
   width: 100%;
   height: 100%;
@@ -31,24 +94,6 @@ body {
   height: 100%;
 }
 
-/* kuruvilla */
-/* .logo__vill {
-  height: 100%;
-  transform: scaleX(0.96) translateX(-1%);
-}
-.logo__dev {
-} */
-
-/* developer */
-/* .logo__vill {
-  display: none;
-}
-.logo__dev {
-  height: 100%;
-  transform: scale(0.7, 0.85) translateX(-16%);
-} */
-
-/* original */
 .logo__vill {
   height: 100%;
   transform: translateX(-50%);
@@ -57,3 +102,5 @@ body {
   height: 100%;
   transform: translateX(-39%);
 }
+
+/* --------------------start------------------ */
