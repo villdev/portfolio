@@ -228,6 +228,7 @@ body::-webkit-scrollbar {
   width: 100%;
   background-color: black;
   padding-left: calc(var(--h-gutter) * 1.5);
+  transform: translateY(-800px);
   display: none;
 }
 

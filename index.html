@@ -6,6 +6,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/locomotive-scroll.min.css" />
   </head>
   <body class="">
     <!-- fixed border for screen -->
@@ -45,22 +46,24 @@
         <li><a class="menu__link" href="#">About</a></li>
       </ul>
     </div>
-    <main id="main">
-      <div class="hero">
-        <small>👋Hello, I'm</small>
-        <h1>Shobhit Kuruvilla</h1>
-        <h2>I love designing and building stuff.</h2>
-        <p>I am a creative frontend developer, with backend experience,</p>
-        <p>primarily working with React. I love to learn new things and</p>
-        <p>experiment with new technologies.</p>
+    <div class="scrollContainer">
+      <main id="main">
+        <div class="hero">
+          <small>👋Hello, I'm</small>
+          <h1>Shobhit Kuruvilla</h1>
+          <h2>I love designing and building stuff.</h2>
+          <p>I am a creative frontend developer, with backend experience,</p>
+          <p>primarily working with React. I love to learn new things and</p>
+          <p>experiment with new technologies.</p>
 
-        <button class="hvr-underline-from-left">
-          <span>My Projects</span>
-        </button>
-      </div>
-    </main>
-    <div class="test"></div>
-    <div class="test"></div>
+          <button class="hvr-underline-from-left">
+            <span>My Projects</span>
+          </button>
+        </div>
+      </main>
+      <div class="test"></div>
+      <div class="test"></div>
+    </div>
     <div class="quick-links">
       <div class="quick-links__twitter">
         <a href="#"> <img src="./images/twitter icon.svg" alt="" /></a>
@@ -75,14 +78,16 @@
     <div class="scroll-perc">
       <div class="fill"></div>
     </div>
+
+    <!-- <progress max="100" value="0"></progress> -->
+
     <!-- <div class="bottom-right-pattern"></div> -->
-    <!-- menu -->
 
     <script src="./js/gsap.min.js"></script>
     <script src="./js/ScrollTrigger.min.js"></script>
+    <script src="./js/locomotive-scroll.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script> -->
     <script src="./js/main.js"></script>
-    <script src="./js/test.js"></script>
   </body>
 </html>
