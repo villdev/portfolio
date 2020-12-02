@@ -225,30 +225,36 @@ window.addEventListener("load", function () {
 });
 
 //scroll bar fill
-window.onscroll = function () {
-  fillScrollbar();
-  const menuBurger = document.querySelector(".burger__open");
-  const menu = document.querySelector(".menu");
-  if (!menuBurger.classList.contains("closed")) {
-    burgerAnimation("close");
-    menu.style.display = "none";
-    menuBurger.classList.add("closed");
-  }
-};
+// window.onscroll = function () {
+//   fillScrollbar();
+//   const menuBurger = document.querySelector(".burger__open");
+//   const menu = document.querySelector(".menu");
+//   if (!menuBurger.classList.contains("closed")) {
+//     burgerAnimation("close");
+//     menu.style.display = "none";
+//     menuBurger.classList.add("closed");
+//   }
+// };
 
-function fillScrollbar() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  scrolled = -100 + scrolled;
-  scrolled = scrolled + "%";
-  // document.documentElement.style.setProperty("--scroll-fill", scrolled);
-  document.querySelector(".fill").style.transform = `translateY(${scrolled})`;
-}
+// function fillScrollbar() {
+//   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//   var height =
+//     document.documentElement.scrollHeight -
+//     document.documentElement.clientHeight;
+//   var scrolled = (winScroll / height) * 100;
+//   scrolled = -100 + scrolled;
+//   scrolled = scrolled + "%";
+//   document.querySelector(".fill").style.transform = `translateY(${scrolled})`;
+// }
+// // document.documentElement.style.setProperty("--scroll-fill", scrolled);
 
 // test smooth scroll
+locoScroll.on("scroll", ({ scroll, limit }) => {
+  // console.log(scroll);
+  const percentScrolled = -100 + (scroll.y / limit.y) * 100;
+  const translateValue = percentScrolled + "%";
+  gsap.set(".fill", { y: translateValue });
+});
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 

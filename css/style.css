@@ -406,6 +406,7 @@ body::-webkit-scrollbar {
   background-color: #fff;
 }
 /* --------------------fill bar----------------------------- */
+
 .scroll-perc {
   position: fixed;
   right: 2.5vw;
@@ -416,9 +417,10 @@ body::-webkit-scrollbar {
   height: 160px;
   /* background-color: #000; */
   /* background-color: var(--primary-color); */
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(100, 100, 100);
   z-index: 3;
   overflow: hidden;
+  /* test */
 }
 .fill {
   width: 100%;
