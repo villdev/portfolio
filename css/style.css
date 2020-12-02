@@ -583,6 +583,47 @@ span:after {
   right: 0;
 }
 
+/* horizontal scroll styling */
+.content {
+  padding: 3rem;
+  min-height: 90vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+}
+.content--feature {
+  justify-content: flex-start;
+  min-height: 0;
+}
+.content__breakout {
+  margin: 0 -10rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: span, serif;
+  font-weight: 200;
+  color: #dadbdb;
+}
+
+.italic {
+  font-style: italic;
+}
+.strokeText {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.content__breakout--big {
+  font-size: 6vw;
+  font-weight: 200;
+}
+
+.content__breakout--medium {
+  font-size: 5vw;
+}
+
 /* ------------------remove border on media */
 @media /* Fairly small screens including iphones */ only screen and (max-width: 500px),
   /* iPads */ only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
