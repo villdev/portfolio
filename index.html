@@ -22,11 +22,17 @@
         <img src="./images/developer.png" alt="" class="villdev__dev" />
       </div>
     </div> -->
+    <div class="header-bcg"></div>
     <div class="logo">
       <span class="logo__img"><a href="./index.html"></a></span>
     </div>
     <div class="burger">
-      <button class="burger__open closed" disabled>
+      <button class="burger__open burger__desk closed" disabled>
+        <span class="burger__open--one"></span>
+        <span class="burger__open--two"></span>
+        <span class="burger__open--three"></span>
+      </button>
+      <button class="burger__open burger__mobile closed">
         <span class="burger__open--one"></span>
         <span class="burger__open--two"></span>
         <span class="burger__open--three"></span>
@@ -52,16 +58,25 @@
           <small>👋Hello, I'm</small>
           <h1>Shobhit Kuruvilla</h1>
           <h2>I love designing and building stuff.</h2>
-          <p>I am a creative frontend developer, with backend experience,</p>
+          <p>
+            I am a creative frontend developer, with backend experience,
+            primarily working with React. I love to learn new things and
+            experiment with new technologies.
+          </p>
+          <!-- <p>I am a creative frontend developer, with backend experience,</p>
           <p>primarily working with React. I love to learn new things and</p>
-          <p>experiment with new technologies.</p>
-
+          <p>experiment with new technologies.</p> -->
+          <!-- &#10230; -->
           <button class="hvr-underline-from-left">
-            <span>My Projects</span>
+            <span>My Projects &gt;</span>
           </button>
         </div>
       </main>
-      <section class="content content--feature">
+      <section
+        data-scroll
+        data-scroll-speed="2"
+        class="content content--feature"
+      >
         <p
           class="content__breakout content__breakout--big"
           data-scroll
@@ -89,8 +104,29 @@
           >
         </p>
       </section>
-      <div class="test"></div>
-      <div class="test"></div>
+      <footer data-scroll data-scroll-speed="0" data-scroll-delay="1">
+        <div class="footer-title">
+          <h1>Drop me a line</h1>
+          <h1 class="strokeText">if you wanna talk.</h1>
+        </div>
+        <div class="end-content">
+          <p class="end__email">shobhit1727@gmail.com</p>
+          <p class="end__loc">Delhi, India</p>
+          <p class="end__dev">
+            Made with <span class="color__js">JS</span> & G<span
+              class="color__gsap"
+              >S</span
+            >AP
+          </p>
+        </div>
+        <div class="mobile-links">
+          <a href="#"> <img src="./images/twitter icon.svg" alt="" />Twitter</a>
+          <a href="#">
+            <img src="./images/linkedIn icon.svg" alt="" />LinkedIn</a
+          >
+          <a href="#"> <img src="./images/cv icon.svg" alt="" />Resume</a>
+        </div>
+      </footer>
     </div>
     <div class="quick-links">
       <div class="quick-links__twitter">

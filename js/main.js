@@ -69,7 +69,7 @@ function initNavigation() {
   const mainNavLinks = gsap.utils.toArray(".main-nav a");
   const mainNavLinksRev = gsap.utils.toArray(".main-nav a").reverse();
   //to enable and disable burger based on scroll
-  const menuBurger = document.querySelector(".burger__open");
+  const menuBurger = document.querySelector(".burger__desk");
 
   mainNavLinks.forEach((link) => {
     link.addEventListener("mouseleave", (e) => {
@@ -136,7 +136,14 @@ function initMenuNavigation() {
   const mainNavLinks = gsap.utils.toArray(".menu a");
   // const mainNavLinksRev = gsap.utils.toArray(".main-nav a").reverse();
   //to enable and disable burger based on scroll
-  const menuBurger = document.querySelector(".burger__open");
+  // const temp = document.querySelectorAll(".burger__open");
+  // console.log(temp);
+  // if (temp[0].style.display != "none") {
+  //   menuBurger = temp[0];
+  // } else {
+  //   menuBurger = temp[1];
+  // }
+  const menuBurger = document.querySelectorAll(".burger__open");
 
   const menu = document.querySelector(".menu");
 
@@ -153,35 +160,106 @@ function initMenuNavigation() {
     // };
   });
 
-  menuBurger.addEventListener("click", (e) => {
-    if (menuBurger.classList.contains("closed")) {
-      burgerAnimation("open");
-      menu.style.display = "block";
-      gsap.to(menu, { duration: 0.4, y: 0, ease: "power4.out" });
-      menuBurger.classList.remove("closed");
-      menuBurger.style.outline = "none";
-      //instead of stopping scroll on move, scrolling now closes the menu, done in onscroll outside
-      // document.body.style.maxHeight = "100%";
-      // document.body.style.overflow = "hidden";
-      // menuBurger.classList.add("open");
-    } else {
-      burgerAnimation("close");
-      gsap.set(menu, { y: -800 });
-      menu.style.display = "none";
-      menuBurger.classList.add("closed");
-      // document.body.style.maxHeight = "";
-      // document.body.style.overflow = "";
-    }
+  // menuBurger.addEventListener("click", (e) => {
+  //   if (menuBurger.classList.contains("closed")) {
+
+  //     burgerAnimation("open");
+  //     menu.style.display = "block";
+  //     gsap.to(menu, { duration: 0.4, y: 0, ease: "power4.out" });
+  //     menuBurger.classList.remove("closed");
+  //     menuBurger.style.outline = "none";
+  //     //instead of stopping scroll on move, scrolling now closes the menu, done in onscroll outside
+  //     // document.body.style.maxHeight = "100%";
+  //     // document.body.style.overflow = "hidden";
+  //     // menuBurger.classList.add("open");
+  //   } else {
+  //     burgerAnimation("close");
+  //     gsap.set(menu, { y: -800 });
+  //     menu.style.display = "none";
+  //     menuBurger.classList.add("closed");
+  //     // document.body.style.maxHeight = "";
+  //     // document.body.style.overflow = "";
+  //   }
+  // });
+  menuBurger.forEach((burger) => {
+    burger.addEventListener("click", (e) => {
+      if (burger.classList.contains("closed")) {
+        burgerAnimation(e.target, "open");
+        menu.style.display = "block";
+        // gsap.to(menu, { duration: 0.4, y: 0, ease: "power4.out" });
+        gsap.to(menu, {
+          duration: 0.5,
+          scaleY: 1,
+          transformOrigin: "top top",
+          ease: "power4.inOut",
+        });
+        // burger.classList.remove("closed");
+        menuBurger[0].classList.remove("closed");
+        menuBurger[1].classList.remove("closed");
+        // menuBurger.forEach((b) => {
+        //   b.classList.remove("closed");
+        // })
+      } else {
+        burgerAnimation(e.target, "close");
+        // gsap.set(menu, { y: -800 });
+        gsap.to(menu, {
+          duration: 0.5,
+          scaleY: -1,
+          transformOrigin: "top top",
+          ease: "powe4.inOut",
+        });
+        // menu.style.display = "none";
+        // burger.classList.add("closed");
+        menuBurger[0].classList.add("closed");
+        menuBurger[1].classList.add("closed");
+        // menuBurger.forEach((b) => {
+        //   b.classList.add("closed");
+        // })
+      }
+    });
   });
 }
-function burgerAnimation(flag) {
-  const burgerOne = document.querySelector(".burger__open--one");
-  const burgerTwo = document.querySelector(".burger__open--two");
-  const burgerThree = document.querySelector(".burger__open--three");
+function burgerAnimation(element, flag) {
+  const menuBurger = document.querySelectorAll(".burger__open");
+  const hiddenBurger = menuBurger[0] == element ? menuBurger[1] : menuBurger[0];
+
+  // change the hidden burger state as well
+  let burgerOne = hiddenBurger.querySelector(".burger__open--one");
+  let burgerTwo = hiddenBurger.querySelector(".burger__open--two");
+  let burgerThree = hiddenBurger.querySelector(".burger__open--three");
   if (flag === "open") {
-    gsap.to(burgerTwo, { duration: 0.2, ease: "expo.out", scale: 0.1 });
+    gsap.set(burgerTwo, { scale: 0.1 });
+    gsap.set(burgerThree, {
+      y: "-8",
+      rotationZ: 45,
+      transformOrigin: "50% 50%",
+    });
+    gsap.set(burgerOne, {
+      rotationZ: -45,
+      y: "8",
+      transformOrigin: "50% 50%",
+    });
+  } else {
+    gsap.set(burgerTwo, { scale: 1 });
+    gsap.set(burgerThree, {
+      y: "0",
+      rotationZ: 0,
+      transformOrigin: "50% 50%",
+    });
+    gsap.set(burgerOne, {
+      rotationZ: 0,
+      y: "0",
+      transformOrigin: "50% 50%",
+    });
+  }
+
+  burgerOne = element.querySelector(".burger__open--one");
+  burgerTwo = element.querySelector(".burger__open--two");
+  burgerThree = element.querySelector(".burger__open--three");
+  if (flag === "open") {
+    gsap.to(burgerTwo, { duration: 0.1, ease: "expo.out", scale: 0.1 });
     gsap.to(burgerThree, {
-      duration: 0.2,
+      duration: 0.1,
       ease: "expo.out",
       // y: "9px",
       y: "-8",
@@ -189,16 +267,16 @@ function burgerAnimation(flag) {
       transformOrigin: "50% 50%",
     });
     gsap.to(burgerOne, {
-      duration: 0.2,
+      duration: 0.1,
       ease: "expo.out",
       rotationZ: -45,
       y: "8",
       transformOrigin: "50% 50%",
     });
   } else {
-    gsap.to(burgerTwo, { duration: 0.2, ease: "expo.out", scale: 1 });
+    gsap.to(burgerTwo, { duration: 0.1, ease: "expo.out", scale: 1 });
     gsap.to(burgerThree, {
-      duration: 0.2,
+      duration: 0.1,
       ease: "expo.out",
       // y: "9px",
       y: "0",
@@ -206,13 +284,52 @@ function burgerAnimation(flag) {
       transformOrigin: "50% 50%",
     });
     gsap.to(burgerOne, {
-      duration: 0.2,
+      duration: 0.1,
       ease: "expo.out",
       rotationZ: 0,
       y: "0",
       transformOrigin: "50% 50%",
     });
   }
+
+  // const burgerOne = element.querySelector(".burger__open--one");
+  // const burgerTwo = element.querySelector(".burger__open--two");
+  // const burgerThree = element.querySelector(".burger__open--three");
+  // if (flag === "open") {
+  //   gsap.to(burgerTwo, { duration: 0.2, ease: "expo.out", scale: 0.1 });
+  //   gsap.to(burgerThree, {
+  //     duration: 0.2,
+  //     ease: "expo.out",
+  //     // y: "9px",
+  //     y: "-8",
+  //     rotationZ: 45,
+  //     transformOrigin: "50% 50%",
+  //   });
+  //   gsap.to(burgerOne, {
+  //     duration: 0.2,
+  //     ease: "expo.out",
+  //     rotationZ: -45,
+  //     y: "8",
+  //     transformOrigin: "50% 50%",
+  //   });
+  // } else {
+  //   gsap.to(burgerTwo, { duration: 0.2, ease: "expo.out", scale: 1 });
+  //   gsap.to(burgerThree, {
+  //     duration: 0.2,
+  //     ease: "expo.out",
+  //     // y: "9px",
+  //     y: "0",
+  //     rotationZ: 0,
+  //     transformOrigin: "50% 50%",
+  //   });
+  //   gsap.to(burgerOne, {
+  //     duration: 0.2,
+  //     ease: "expo.out",
+  //     rotationZ: 0,
+  //     y: "0",
+  //     transformOrigin: "50% 50%",
+  //   });
+  // }
 }
 
 function init() {
