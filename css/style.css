@@ -367,6 +367,15 @@ body::-webkit-scrollbar {
   transform: translateX(100%);
 }
 
+.main-nav .active-nav {
+  /* font-weight: 600; */
+  color: var(--primary-color);
+  /* font-size: 1rem */
+}
+/* .active-menu {
+
+} */
+
 /* .has-scrolled .burger__open span {
   transform: scaleX(1) translateX(0);
 } */
@@ -763,6 +772,130 @@ footer {
   font-size: 0.8rem;
 }
 
+/* -------------------------------------projects html--------------------------- */
+.projects {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--h-gutter);
+  padding-left: calc(var(--h-gutter) * 2);
+  padding-right: calc(var(--h-gutter) * 2);
+  padding-bottom: calc(var(--h-gutter) * 0.5);
+}
+
+.projects__header {
+  align-self: flex-start;
+  color: white;
+  font-size: 3rem;
+  font-family: var(--font-headings);
+  margin-bottom: calc(var(--header-height) * 1);
+}
+.project {
+  width: 70%;
+  /* height: 50%; */
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: calc(var(--header-height) * 3);
+}
+.project:last-child {
+  margin-bottom: 0;
+}
+.project__left {
+  width: 47%;
+  position: relative;
+}
+.projectStrokeText {
+  -webkit-text-fill-color: var(--bcg1);
+  -webkit-text-stroke-width: 2px;
+  /* -webkit-text-stroke-color: white; */
+  -webkit-text-stroke-color: var(--primary-color);
+  text-shadow: 0 0 5px var(--bcg1), 0 0 10px var(--bcg1), 0 0 20px var(--bcg1),
+    0 0 30px var(--bcg1), 0 0 40px var(--bcg1), 0 0 50px var(--bcg1),
+    0 0 60px var(--bcg1);
+}
+.project-number {
+  font-family: var(--font-headings);
+  /* font-family: Garamond; */
+  font-size: 5rem;
+  font-weight: 600;
+  position: absolute;
+  top: -0rem;
+  left: -1.1rem;
+  margin: 0;
+  line-height: 1rem;
+  transform: scale(1.5, 1.5);
+  z-index: 3;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.project-decoration-line {
+  width: 100px;
+  height: 1px;
+  background-color: #ffffff;
+  margin-left: 10px;
+}
+.project-stack {
+  color: #868686;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 80px;
+  right: -90px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 0;
+  width: 160px;
+  /* transform-origin: 50% 50%; */
+  transform: rotate(90deg);
+}
+
+.project__right {
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.project-title {
+  color: white;
+  font-size: 4rem;
+  font-family: var(--font-headings);
+  line-height: 4rem;
+}
+.project-intro {
+  color: white;
+}
+.project-btns {
+  display: flex;
+  justify-content: flex-start;
+  /* width: 100%; */
+}
+.project-btns button {
+  width: 200px;
+  height: 60px;
+  background-color: transparent;
+  color: white;
+  margin-right: 16px;
+  letter-spacing: 0.2vw;
+}
+.demo-btn {
+  border-color: var(--primary-color);
+}
+
 /* ------------------ media Queries */
 /* @media Fairly small screens including iphones only screen and (max-width: 500px),
   iPads only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -881,6 +1014,10 @@ footer {
   .menu a::after {
     height: 25px;
   }
+  .quick-links {
+    /* left: 4vw; */
+    bottom: 1vw;
+  }
 }
 
 /* // Medium devices (tablets, less than 992px) */
@@ -914,6 +1051,14 @@ footer {
   .main-nav {
     right: calc(var(--h-gutter) * 2);
   }
+  .footer-title {
+    font-size: 2.2rem;
+    /* padding-left: calc(var(--h-gutter)); */
+    /* padding-left: 0; */
+  }
+  .footer-title h1:nth-child(2) {
+    font-size: 4rem;
+  }
   .menu ul {
     font-size: 5rem;
     padding-top: var(--header-height);
@@ -923,6 +1068,10 @@ footer {
   }
   .menu a:hover {
     color: #3b3838;
+  }
+  .quick-links {
+    left: 4vw;
+    bottom: 2vw;
   }
 }
 
@@ -970,6 +1119,14 @@ footer {
     right: 0;
     height: 10px;
   }
+  .footer-title {
+    font-size: 1.5rem;
+    /* padding-left: calc(var(--h-gutter)); */
+    /* padding-left: 0; */
+  }
+  .footer-title h1:nth-child(2) {
+    font-size: 3rem;
+  }
   .menu ul {
     font-size: 4rem;
     padding-top: var(--header-height);
@@ -979,6 +1136,10 @@ footer {
   }
   .menu a:hover {
     color: #3b3838;
+  }
+  .quick-links {
+    left: 4vw;
+    bottom: 2vw;
   }
 }
 
