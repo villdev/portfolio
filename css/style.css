@@ -423,18 +423,7 @@ body::-webkit-scrollbar {
     hue-rotate(102deg) brightness(103%) contrast(110%); */
 }
 .quick-links a:hover {
-  /* background-color: #fff; */
-  background: #00c9ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #92fe9d,
-    #00c9ff
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #92fe9d,
-    #00c9ff
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: rgb(207, 205, 205);
 }
 
 /* --------------------fill bar----------------------------- */
