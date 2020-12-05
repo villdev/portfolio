@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Shobhit Kuruvilla</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/locomotive-scroll.min.css" />
+  </head>
+  <body class="">
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+    <div class="header-bcg"></div>
+    <div class="logo">
+      <span class="logo__img"><a href="./index.html"></a></span>
+    </div>
+    <div class="burger">
+      <button class="burger__open burger__desk closed" disabled>
+        <span class="burger__open--one"></span>
+        <span class="burger__open--two"></span>
+        <span class="burger__open--three"></span>
+      </button>
+      <button class="burger__open burger__mobile closed">
+        <span class="burger__open--one"></span>
+        <span class="burger__open--two"></span>
+        <span class="burger__open--three"></span>
+      </button>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./blogs.html">Blogs</a></li>
+        <li><a class="active-nav" href="./about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="menu">
+      <ul>
+        <li><a class="menu__link" href="./index.html">Home</a></li>
+        <li><a class="menu__link" href="./projects.html">Projects</a></li>
+        <li><a class="menu__link" href="./blogs.html">Blogs</a></li>
+        <li><a class="menu__link" href="./about.html">About</a></li>
+      </ul>
+    </div>
+    <div class="scrollContainer">
+      <!-- <main id="main"></main> -->
+      <section class="about">
+        <div class="about-header">About</div>
+        <div class="about-content">
+          <div class="about-content__left">
+            <p class="about-content-text">
+              Hi, I'm <span class="bold colorPrimary">Shobhit Kuruvilla</span>,
+              a frontend developer with backend experience. I'm a
+              <span class="colorPrimary">JavaScript developer</span> with a
+              particular a particular focus on making products with great user
+              experience and interface.
+            </p>
+            <p class="about-content-text">
+              Fell in love with coding and designing back in high school. Ever
+              since writing my first code I knew what I wanted to do. And I've
+              always been obsessed with UI and typography. I am passionate about
+              the web, design and everything at its intersection.
+            </p>
+            <p class="about-content-text">
+              I'm proficient in HTML, CSS, JavaScript, React, Node.js, MongoDB,
+              Figma and UI prototyping. I love to learn new things and
+              experiment with new technologies. Also have special interest in
+              GSAP and Three.js.
+            </p>
+            <p class="about-content-text">
+              Oh I also love to read books. I'm a sucker for anything that has
+              fantasy and romance. Recently I've also been trying my hand at
+              creative coding. I enjoy eating out and listening to music. Always
+              wanted to travel around the world and experience new things.
+            </p>
+            <p class="about-content-text">
+              Currently in the final year of college and will be available full
+              time after summer 2021.
+            </p>
+          </div>
+          <div class="about-content__right">
+            <div class="about-image-wrapper">
+              <img
+                data-scroll
+                data-scroll-speed="-1"
+                src="./images/pictureMe.jpeg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer data-scroll data-scroll-speed="0" data-scroll-delay="1">
+        <div class="footer-title">
+          <h1>Drop me a line</h1>
+          <h1 class="strokeText">if you wanna talk.</h1>
+        </div>
+        <div class="end-content">
+          <p class="end__email">shobhit1727@gmail.com</p>
+          <p class="end__loc">Delhi, India</p>
+          <p class="end__dev">
+            Made with <span class="color__js">JS</span> & G<span
+              class="color__gsap"
+              >S</span
+            >AP
+          </p>
+        </div>
+        <div class="mobile-links">
+          <a href="#"> <img src="./images/twitter icon.svg" alt="" />Twitter</a>
+          <a href="#">
+            <img src="./images/linkedIn icon.svg" alt="" />LinkedIn</a
+          >
+          <a href="#"> <img src="./images/cv icon.svg" alt="" />Resume</a>
+        </div>
+      </footer>
+    </div>
+    <div class="quick-links">
+      <div class="quick-links__twitter">
+        <a href="#"> <img src="./images/twitter icon.svg" alt="" /></a>
+      </div>
+      <div class="quick-links__linkedin">
+        <a href="#"> <img src="./images/linkedIn icon.svg" alt="" /></a>
+      </div>
+      <div class="quick-links__cv">
+        <a href="#"> <img src="./images/cv icon.svg" alt="" /></a>
+      </div>
+    </div>
+    <div class="scroll-perc">
+      <div class="fill"></div>
+    </div>
+
+    <!-- <div class="bottom-right-pattern"></div> -->
+
+    <script src="./js/gsap.min.js"></script>
+    <script src="./js/ScrollTrigger.min.js"></script>
+    <script src="./js/locomotive-scroll.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script> -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
