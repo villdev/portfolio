@@ -415,8 +415,10 @@ body::-webkit-scrollbar {
   /* Rounded border */
   /* border-radius: 50%; */
   /* Take full size */
-  /* height: 20%; */
-  /* width: 20%; */
+  /* height: 60%;
+  width: 60%; */
+  height: 24px;
+  width: 24px;
   filter: brightness(0) saturate(100%) invert(69%) sepia(9%) saturate(6578%)
     hue-rotate(152deg) brightness(108%) contrast(87%);
   /* filter: brightness(0) saturate(100%) invert(95%) sepia(28%) saturate(5094%)
