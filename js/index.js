@@ -116,7 +116,7 @@ function initNavigation() {
   }
 
   ScrollTrigger.create({
-    start: 400,
+    start: 150,
     end: "bottom bottom-=40",
     scroller: ".scrollContainer",
     toggleClass: {
@@ -292,45 +292,6 @@ function burgerAnimation(element, flag) {
       transformOrigin: "50% 50%",
     });
   }
-
-  // const burgerOne = element.querySelector(".burger__open--one");
-  // const burgerTwo = element.querySelector(".burger__open--two");
-  // const burgerThree = element.querySelector(".burger__open--three");
-  // if (flag === "open") {
-  //   gsap.to(burgerTwo, { duration: 0.2, ease: "expo.out", scale: 0.1 });
-  //   gsap.to(burgerThree, {
-  //     duration: 0.2,
-  //     ease: "expo.out",
-  //     // y: "9px",
-  //     y: "-8",
-  //     rotationZ: 45,
-  //     transformOrigin: "50% 50%",
-  //   });
-  //   gsap.to(burgerOne, {
-  //     duration: 0.2,
-  //     ease: "expo.out",
-  //     rotationZ: -45,
-  //     y: "8",
-  //     transformOrigin: "50% 50%",
-  //   });
-  // } else {
-  //   gsap.to(burgerTwo, { duration: 0.2, ease: "expo.out", scale: 1 });
-  //   gsap.to(burgerThree, {
-  //     duration: 0.2,
-  //     ease: "expo.out",
-  //     // y: "9px",
-  //     y: "0",
-  //     rotationZ: 0,
-  //     transformOrigin: "50% 50%",
-  //   });
-  //   gsap.to(burgerOne, {
-  //     duration: 0.2,
-  //     ease: "expo.out",
-  //     rotationZ: 0,
-  //     y: "0",
-  //     transformOrigin: "50% 50%",
-  //   });
-  // }
 }
 
 function init() {
