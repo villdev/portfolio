@@ -5,6 +5,7 @@ const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".scrollContainer"),
   smooth: true,
   multiplier: 1.3,
+  reloadOnContextChange: true,
 });
 
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
@@ -91,9 +92,15 @@ function initNavigation() {
     menuBurger.disabled = !scrollingDown;
 
     //make sure it changes back based on scroll not just css
-    const burgerOne = document.querySelector(".burger__open--one");
-    const burgerTwo = document.querySelector(".burger__open--two");
-    const burgerThree = document.querySelector(".burger__open--three");
+    const burgerOne = document.querySelector(
+      ".burger__desk .burger__open--one"
+    );
+    const burgerTwo = document.querySelector(
+      ".burger__desk .burger__open--two"
+    );
+    const burgerThree = document.querySelector(
+      ".burger__desk .burger__open--three"
+    );
     if (scrollingDown) {
       gsap.to(burgerOne, { duration: 0.3, scaleX: 1, x: 0 });
       gsap.to(burgerTwo, { duration: 0.3, scaleX: 1, x: 0 });
@@ -184,8 +191,9 @@ function initMenuNavigation() {
   // });
   menuBurger.forEach((burger) => {
     burger.addEventListener("click", (e) => {
+      // console
       if (burger.classList.contains("closed")) {
-        burgerAnimation(e.target, "open");
+        burgerAnimation(burger, "open");
         menu.style.display = "block";
         // gsap.to(menu, { duration: 0.4, y: 0, ease: "power4.out" });
         gsap.to(menu, {
@@ -201,7 +209,7 @@ function initMenuNavigation() {
         //   b.classList.remove("closed");
         // })
       } else {
-        burgerAnimation(e.target, "close");
+        burgerAnimation(burger, "close");
         // gsap.set(menu, { y: -800 });
         gsap.to(menu, {
           duration: 0.5,
@@ -222,37 +230,37 @@ function initMenuNavigation() {
 }
 function burgerAnimation(element, flag) {
   const menuBurger = document.querySelectorAll(".burger__open");
-  const hiddenBurger = menuBurger[0] == element ? menuBurger[1] : menuBurger[0];
+  // const hiddenBurger = menuBurger[0] == element ? menuBurger[1] : menuBurger[0];
 
   // change the hidden burger state as well
-  let burgerOne = hiddenBurger.querySelector(".burger__open--one");
-  let burgerTwo = hiddenBurger.querySelector(".burger__open--two");
-  let burgerThree = hiddenBurger.querySelector(".burger__open--three");
-  if (flag === "open") {
-    gsap.set(burgerTwo, { scale: 0.1 });
-    gsap.set(burgerThree, {
-      y: "-8",
-      rotationZ: 45,
-      transformOrigin: "50% 50%",
-    });
-    gsap.set(burgerOne, {
-      rotationZ: -45,
-      y: "8",
-      transformOrigin: "50% 50%",
-    });
-  } else {
-    gsap.set(burgerTwo, { scale: 1 });
-    gsap.set(burgerThree, {
-      y: "0",
-      rotationZ: 0,
-      transformOrigin: "50% 50%",
-    });
-    gsap.set(burgerOne, {
-      rotationZ: 0,
-      y: "0",
-      transformOrigin: "50% 50%",
-    });
-  }
+  // let burgerOne = hiddenBurger.querySelector(".burger__open--one");
+  // let burgerTwo = hiddenBurger.querySelector(".burger__open--two");
+  // let burgerThree = hiddenBurger.querySelector(".burger__open--three");
+  // if (flag === "open") {
+  //   gsap.set(burgerTwo, { scale: 0.1 });
+  //   gsap.set(burgerThree, {
+  //     y: "-8",
+  //     rotationZ: 45,
+  //     transformOrigin: "50% 50%",
+  //   });
+  //   gsap.set(burgerOne, {
+  //     rotationZ: -45,
+  //     y: "8",
+  //     transformOrigin: "50% 50%",
+  //   });
+  // } else {
+  //   gsap.set(burgerTwo, { scale: 1 });
+  //   gsap.set(burgerThree, {
+  //     y: "0",
+  //     rotationZ: 0,
+  //     transformOrigin: "50% 50%",
+  //   });
+  //   gsap.set(burgerOne, {
+  //     rotationZ: 0,
+  //     y: "0",
+  //     transformOrigin: "50% 50%",
+  //   });
+  // }
 
   burgerOne = element.querySelector(".burger__open--one");
   burgerTwo = element.querySelector(".burger__open--two");
@@ -303,29 +311,40 @@ window.addEventListener("load", function () {
   init();
 });
 
-//scroll bar fill
-// window.onscroll = function () {
-//   fillScrollbar();
-//   const menuBurger = document.querySelector(".burger__open");
-//   const menu = document.querySelector(".menu");
-//   if (!menuBurger.classList.contains("closed")) {
-//     burgerAnimation("close");
-//     menu.style.display = "none";
-//     menuBurger.classList.add("closed");
-//   }
-// };
+// scroll bar fill
+window.onscroll = function () {
+  fillScrollbar();
+  const menuBurger = document.querySelector(".burger__open");
+  const menu = document.querySelector(".menu");
+  if (!menuBurger.classList.contains("closed")) {
+    burgerAnimation("close");
+    menu.style.display = "none";
+    menuBurger.classList.add("closed");
+  }
+};
 
-// function fillScrollbar() {
-//   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-//   var height =
-//     document.documentElement.scrollHeight -
-//     document.documentElement.clientHeight;
-//   var scrolled = (winScroll / height) * 100;
-//   scrolled = -100 + scrolled;
-//   scrolled = scrolled + "%";
-//   document.querySelector(".fill").style.transform = `translateY(${scrolled})`;
+function fillScrollbar() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  scrolled = -100 + scrolled;
+  scrolled = scrolled + "%";
+  document.querySelector(".fill").style.transform = `translateY(${scrolled})`;
+}
+
+// const vw = Math.max(
+//   document.documentElement.clientWidth || 0,
+//   window.innerWidth || 0
+// );
+// if (vw < 575.98) {
+//   document.querySelector(".burger__desk").style.display = "none";
+//   document.querySelector(".burger__mobile").style.display = "block";
+// } else {
+//   document.querySelector(".burger__desk").style.display = "block";
+//   document.querySelector(".burger__mobile").style.display = "none";
 // }
-// // document.documentElement.style.setProperty("--scroll-fill", scrolled);
 
 // test smooth scroll
 locoScroll.on("scroll", ({ scroll, limit }) => {
