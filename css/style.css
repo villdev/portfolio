@@ -368,7 +368,8 @@ body {
 }
 
 .quick-links a {
-  border: 2px solid var(--primary-color);
+  /* border: 2px solid var(--primary-color); */
+  border: 2px solid #2098d1;
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -376,6 +377,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 2.5vw;
+  background-color: var(--bcg1);
 }
 .quick-links img {
   /* height: 60%;
@@ -388,73 +390,20 @@ body {
 .quick-links a:hover {
   /* background-color: rgb(207, 205, 205); */
 
-  -webkit-animation: jello-vertical 0.5s ease-in;
-  animation: jello-vertical 0.5s ease-in;
-}
-.quick-links a:focus {
-  -webkit-animation: jello-vertical 0.5s ease-in;
-  animation: jello-vertical 0.5s ease-in;
+  transform: scale(1.1);
+  transition: transform 0.3s var(--easing);
+  /* border: none; */
+  background-color: transparent;
+  border-radius: 0;
+  /* color: black; */
 }
 
-@-webkit-keyframes jello-vertical {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(0.85, 1.15, 1);
-    transform: scale3d(0.85, 1.15, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes jello-vertical {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(0.85, 1.15, 1);
-    transform: scale3d(0.85, 1.15, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
+.quick-links a:focus {
+  transform: scale(1.1);
+  transition: transform 0.3s var(--easing);
+  /* border: none; */
+  background-color: transparent;
+  border-radius: 0;
 }
 
 /* --------------------fill bar----------------------------- */
