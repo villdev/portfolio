@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 // test smooth scroll
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".scrollContainer"),
@@ -63,7 +65,6 @@ ScrollTrigger.scrollerProxy(".scrollContainer", {
 //     );
 // }
 // document.querySelector(".loading").addEventListener("click", startLoading);
-gsap.registerPlugin(ScrollTrigger);
 
 function initNavigation() {
   const mainNavLinks = gsap.utils.toArray(".main-nav a");
