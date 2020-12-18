@@ -194,7 +194,8 @@ function initMenuNavigation() {
       // console
       if (burger.classList.contains("closed")) {
         burgerAnimation(burger, "open");
-        menu.style.display = "block";
+        // menu.style.display = "block";
+        menu.style.display = "flex";
         // gsap.to(menu, { duration: 0.4, y: 0, ease: "power4.out" });
         gsap.to(menu, {
           duration: 0.5,
@@ -349,8 +350,6 @@ function fillScrollbar() {
 const scrollPercBar = document.querySelector(".scroll-perc");
 
 scrollPercBar.addEventListener("click", (e) => {
-  // e = Mouse click event.
-  console.log(e.currentTarget);
   const rect = e.currentTarget.getBoundingClientRect();
   let y = e.clientY - rect.top;
   y = (y / 160) * 100;
