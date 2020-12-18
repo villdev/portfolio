@@ -346,10 +346,26 @@ function fillScrollbar() {
 //   document.querySelector(".burger__mobile").style.display = "none";
 // }
 
+const scrollPercBar = document.querySelector(".scroll-perc");
+
+scrollPercBar.addEventListener("click", (e) => {
+  // e = Mouse click event.
+  console.log(e.currentTarget);
+  const rect = e.currentTarget.getBoundingClientRect();
+  let y = e.clientY - rect.top;
+  y = (y / 160) * 100;
+  const done = percentScrolled + 100;
+  const jumpTo = Math.floor((y * scrollValue) / 100);
+  locoScroll.scrollTo(jumpTo);
+});
+
+let percentScrolled = 0;
+let scrollValue = 0;
 // test smooth scroll
 locoScroll.on("scroll", ({ scroll, limit }) => {
-  // console.log(scroll);
-  const percentScrolled = -100 + (scroll.y / limit.y) * 100;
+  scrollValue = limit.y;
+  percentScrolled = -100 + (scroll.y / limit.y) * 100;
+  // const percentScrolled = -100 + (scroll.y / limit.y) * 100;
   const translateValue = percentScrolled + "%";
   gsap.set(".fill", { y: translateValue });
 });

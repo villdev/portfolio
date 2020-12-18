@@ -78,6 +78,17 @@ body {
   color: var(--text-dark-color);
   background-color: var(--bcg1);
 }
+::-moz-selection {
+  /* Code for Firefox */
+  color: #f51720;
+  background: #f8d210;
+}
+
+::selection {
+  /* color: red; */
+  color: #f51720;
+  background: #f8d210;
+}
 
 /* ------------------------loading animation styles------------------ */
 /* loading container */
@@ -413,7 +424,7 @@ body {
   right: 2.5vw;
   /* bottom: ; */
   top: 45%;
-  width: 4px;
+  width: 6px;
   border-radius: 5rem;
   height: 160px;
   /* background-color: #000; */
