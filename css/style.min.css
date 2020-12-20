@@ -1420,6 +1420,9 @@ footer {
   .project-image {
     height: 200px;
   }
+  .project-image img {
+    filter: grayscale(0);
+  }
   .blogs {
     padding-left: calc(var(--h-gutter) * 1.75);
     padding-right: calc(var(--h-gutter) * 1.75);
